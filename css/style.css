@@ -1,0 +1,29 @@
+#tic-container {
+	display: block;
+	border: 1px solid red;
+	width: 50%;
+	margin: 0 auto;
+	padding: 1rem;
+} 	
+
+#container {
+	display: block;
+	border: 1px solid blue;
+	margin: 0 auto;
+	position: relative;
+}
+
+#tic-container div {
+	display: inline-block;
+	height: 160px;
+	width: 30%;
+	border: 1px solid black;
+	margin: 0 auto;
+	position: relative;
+}
+.x {
+	background-color: rebeccapurple;
+}
+.o {
+	background-color: lightblue;
+}
