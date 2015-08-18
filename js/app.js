@@ -25,6 +25,9 @@ var t3 = {
                 alert("player 2 wins");
             }
         }
+        if ( t3.player1 + t3.player2 === 9 ) {
+          alert("ties!")
+        } 
     },
     xAndo: function() {
         t3.counter++
