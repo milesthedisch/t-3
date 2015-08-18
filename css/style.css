@@ -1,6 +1,5 @@
 #tic-container {
 	display: block;
-	border: 1px solid red;
 	width: 50%;
 	margin: 0 auto;
 	padding: 1rem;
@@ -8,7 +7,6 @@
 
 #container {
 	display: block;
-	border: 1px solid blue;
 	margin: 0 auto;
 	position: relative;
 }

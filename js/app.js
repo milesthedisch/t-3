@@ -1,47 +1,57 @@
 var t3 = {
-
-  counter: 0,
-  winningCombination: [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]],
-  player1: [],
-  player2: [],
-
-  //functions here
-
-  xAndo: function () {
-    t3.counter++
-    if ( t3.counter%2 === 0 ) {
-      $(this).toggleClass('o')
-      if($(this).hasClass === 'one') {
-        console.log("this is block one")
-      }
+    counter: 0,
+    winningCombination: [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+        [1, 4, 7],
+        [2, 5, 8],
+        [3, 6, 9],
+        [1, 5, 9],
+        [3, 5, 7]
+    ],
+    player1: [],
+    player2: [],
+    compare: function() {
+        for (var i = 0; i < t3.winningCombination.length; i++) {
+            var player1choose = $(t3.winningCombination[i]).not(t3.player1).get(); // 
+            if (player1choose.length === 0) {
+                alert("player 1 wins");
+            }
+        }
+        for (var i = 0; i < t3.winningCombination.length; i++) {
+            var player2choose = $(t3.winningCombination[i]).not(t3.player2).get(); // 
+            if (player2choose.length === 0) {
+                alert("player 2 wins");
+            }
+        }
+    },
+    xAndo: function() {
+        t3.counter++
+            if (t3.counter % 2 === 0) {
+                $(this).toggleClass('o');
+                var className = $(this).attr('class').split(' ')[0];
+                var classNum = parseInt(className.slice('-1'))
+                t3.player2.push(classNum)
+                console.log(classNum)
+                t3.compare()
+            } else {
+                $(this).toggleClass('x');
+                var className = $(this).attr('class').split(' ')[0];
+                var classNum = parseInt(className.slice('-1')) // try using + sign from jquery
+                t3.player1.push(classNum)
+                console.log(classNum)
+                t3.compare()
+            }
+    },
+    init: function() {
+        $("#tic-container div").on('click', this.xAndo);
     }
-    else {  
-      $(this).toggleClass('x')
-    }
-  },
-
-
-
-  init: function() {
-    //event listners here
-    $("#one").on('click', this.xAndo)
-    $("#two").on('click', this.xAndo)
-    $("#three").on('click', this.xAndo)
-    $("#four").on('click', this.xAndo)
-    $("#five").on('click', this.xAndo)
-    $("#six").on('click', this.xAndo)
-    $("#seven").on('click', this.xAndo)
-    $("#eight").on('click', this.xAndo)
-    $("#nine").on('click', this.xAndo)
-  }
 }
 
-$(document).ready(function (){
-  t3.init();
+$(document).ready(function() {
+    t3.init();
 });
-//
-
-// JavaScript Document
 // $(document).ready(function() {
 // var x = "x"
 // var o = "o"
