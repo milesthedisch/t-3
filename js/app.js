@@ -17,15 +17,17 @@ var t3 = {
             var player1choose = $(t3.winningCombination[i]).not(t3.player1).get(); // 
             if (player1choose.length === 0) {
                 alert("player 1 wins");
+                return
             }
         }
         for (var i = 0; i < t3.winningCombination.length; i++) {
             var player2choose = $(t3.winningCombination[i]).not(t3.player2).get(); // 
             if (player2choose.length === 0) {
                 alert("player 2 wins");
+                return
             }
         }
-        if ( t3.player1 + t3.player2 === 9 ) {
+        if ( t3.player1.length + t3.player2.length === 9 ) {
           alert("ties!")
         } 
     },
